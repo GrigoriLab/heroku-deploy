@@ -90,7 +90,7 @@ const deploy = ({
       .trim();
     console.log(`Remote branch: ${remote_branch}`);
 
-    if (remote_branch === "master") {
+    if (remote_branch === "main") {
       execSync("heroku plugins:install heroku-repo");
       execSync("heroku repo:reset -a " + app_name);
     }
