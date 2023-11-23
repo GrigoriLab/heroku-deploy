@@ -88,6 +88,7 @@ const deploy = ({
     )
       .toString()
       .trim();
+    console.log(`Remote branch: ${remote_branch}`);
 
     if (remote_branch === "master") {
       execSync("heroku plugins:install heroku-repo");
@@ -95,6 +96,7 @@ const deploy = ({
     }
 
     if (appdir === "") {
+      console.log(`Running command: git push heroku ${branch}:refs/heads/main ${force}`);
       execSync(`git push heroku ${branch}:refs/heads/main ${force}`, {
         maxBuffer: 104857600,
       });
